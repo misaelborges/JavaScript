@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pais</title>
+</head>
+<body>
+    <h1>Sistemas de Estrangeiros</h1>
+    <p>Pais de origem</p>
+    <input list="nasc" id="txtpais">
+    <datalist id="nasc">
+        <option value="Brasil"></option>
+        <option value="EUA"></option>
+        <option value="Alemanha"></option>
+        <option value="Italia"></option>
+    </datalist>
+    <input type="button" value="verificar" onclick="ver()">
+    <input type="button" value="limpar" onclick="reset()">
+    <div id="res">
+        resultado
+    </div>
+
+    <script>
+        function ver() {
+            var pais = window.document.getElementById('txtpais').value.toUpperCase()
+            var res = window.document.getElementById('res')
+            res.innerHTML = `<p>Seu pais de de origem: ${pais}</p>`
+            if (pais == 'BRASIL') {
+                res.innerHTML += '<p>Voce é brasileiro</p>'
+            } else {
+                res.innerHTML += '<p>Voce é estrangeiro</p>'
+            }
+        }
+
+        function reset() {
+            var reset1 = document.getElementById('txtpais')
+            var reset2 = document.getElementById('res')
+            reset1.value = ''
+            reset2.innerHTML = 'resultado'
+        }
+    </script>
+</body>
+</html>
